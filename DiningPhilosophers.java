@@ -17,14 +17,14 @@ class Philosopher implements Runnable {
     public void run() {
         try {
             while (true) {
-                doAction(System.nanoTime() + ": Thinking"); // thinking
+                work(System.nanoTime() + ": Thinking"); // thinking
                 synchronized (leftFork) {
-                    doAction(System.nanoTime() + ": Picked up left fork");
+                    work(System.nanoTime() + ": Picked up left fork");
                     synchronized (rightFork) {
-                        doAction(System.nanoTime() + ": Picked up right fork - eating"); // eating
-                        doAction(System.nanoTime() + ": Put down right fork");
+                        work(System.nanoTime() + ": Picked up right fork - eating"); // eating
+                        work(System.nanoTime() + ": Put down right fork");
                     }
-                    doAction(System.nanoTime() + ": Put down left fork. Returning to thinking");
+                    work(System.nanoTime() + ": Put down left fork. Returning to thinking");
                 }
             }
         } catch (InterruptedException e) {
