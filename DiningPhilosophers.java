@@ -3,13 +3,13 @@ class Philosopher implements Runnable {
     private final Object leftFork;
     private final Object rightFork;
 
-    Philosopher(Object left, Object right) {
-        this.leftFork = left;
-        this.rightFork = right;
+    Philosopher(Object leftFork, Object rightFork) {
+        this.leftFork = leftFork;
+        this.rightFork = rightFork;
     }
 
-    private void doAction(String action) throws InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " " + action);
+    private void work(String work) throws InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " " + work);
         Thread.sleep(((int) (Math.random() * 100)));
     }
 
